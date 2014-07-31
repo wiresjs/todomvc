@@ -11,9 +11,9 @@
 		<input id="toggle-all" type="checkbox"> <label
 			for="toggle-all">Mark all as complete</label>
 
-		<ul id="todo-list" each="$todo in $todos">
-			<!--  item -->
-			<li visible="$todo.visible" class="{# $todo.completed ? 'completed' : '' #} {# $todo.editMode ? 'editing' :'' #}">
+		<ul id="todo-list" >
+			<!--  item -->           
+			<li repeat="$todo in $todos" visible="$todo.visible" ws-class="{ 'completed' : $todo.completed, 'editing' : $todo.editMode }">
 				<div class="view" visible='!$todo.editMode'>
 					<input class="toggle" type="checkbox" value="$todo.completed">
 					<label>$todo.title</label>
