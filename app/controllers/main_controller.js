@@ -9,65 +9,37 @@ var app = app || {};
 		},
 		// Init the app
 		// Set the needed data
-		initialize : function()
-		{
+		initialize : function() {
 			this.userText = '';
-			this.todos = [ {
-				completed : true,
-				editMode : false,
-				visible : true,
-				title : 'Open todomvc application'
-			}, {
-				completed : false,
-				visible : true,
-				editMode : false,
-				title : 'Check the source code'
-			}];
+			this.todos = new app.ToDo().fetchAll();
 		},
 		// Filter by active
-		active : function(params, render)
-		{
+		active : function(params, render) {
 			this.path = 'active';
-			_.each(this.todos, function(todo){
-				todo.visible = todo.completed === false
-			});
+			this.todos.where({ completed : false});
 			render()
 		},
 		// Filter by completed
-		completed : function(params, render)
-		{
+		completed : function(params, render) {
 			this.path = 'completed';
-			_.each(this.todos, function(todo){
-				todo.visible = todo.completed === true
-			});
+			this.todos.where({ completed : true})
 			render()
 		},
 		// Index
 		index : function(params, render) {
 			this.path = 'index';
-			_.each(this.todos, function(todo){
-				todo.visible = true;
-			})
+			this.todos.reset();
 			render();
-		},
-		updateStatus : function()
-		{
-			var left = 0;
-			_.each(this.todos, function(todo){
-				if ( todo.completed === false )
-					left++;
-			})
-			this.todoLeft = left;
 		},
 		addToDo : function() {
 			if (!this.userText)
 				return;
-			this.todos.push({
-				completed : false,
-				editMode : false,
-				visible : this.path === 'index' || this.path === 'active',
-				title : this.userText
+
+			var newToDo = new app.ToDo({
+				title : this.userText,
+				completed : false
 			})
+			this.todos.add(newToDo)
 			// Reset variable
 			this.userText = '';
 		}

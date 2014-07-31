@@ -13,12 +13,12 @@
 
 		<ul id="todo-list" >
 			<!--  item -->           
-			<li repeat="$todo in $todos" visible="$todo.visible" ws-class="{ 'completed' : $todo.completed, 'editing' : $todo.editMode }">
+			<li repeat="$todo in $todos" ws-class="{ 'completed' : $todo.completed, 'editing' : $todo.editMode }">
 				<div class="view" visible='!$todo.editMode'>
 					<input class="toggle" type="checkbox" value="$todo.completed">
 					<label>$todo.title</label>
 					<button class="destroy"></button>
-				</div> <input class="edit" value="title" visible='$todo.editMode'>
+				</div> <input class="edit" value="$todo.title" visible='$todo.editMode'>
 			</li>
 
 		</ul>
