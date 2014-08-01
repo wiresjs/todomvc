@@ -25,6 +25,10 @@ var app = app || {};
 			this.todos.where({ completed : true})
 			render()
 		},
+		remove : function(scope)
+		{
+			scope.todo.remove();
+		},
 		// Index
 		index : function(params, render) {
 			this.path = 'index';
