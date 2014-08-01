@@ -6,13 +6,20 @@ var app = app || {};
 		_settings : {
 			json : '/todo.json'
 		},
-		onCompletedChanged : function(value)
+		/*updateToDoLeft : function()
 		{
 			if ( this._collection ) {
 				var collection = this._collection
-				collection.refresh();
-				
 				collection.todoLeft = _.where(collection.db, { completed : false }).length;
+				collection.todoCompleted = _.where(collection.db, { completed : true }).length;
+			}
+		},*/
+		onCompletedChanged : function(value)
+		{
+			
+			if ( this._collection ) {
+				this._collection.trigger('statusChanged', value)
+				this._collection.refresh();
 			}
 		}
 	});
