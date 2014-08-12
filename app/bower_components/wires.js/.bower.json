@@ -1,6 +1,6 @@
 {
   "name": "wires.js",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "homepage": "https://github.com/wiresjs/wires.js",
   "authors": [
     "iorlov <nchanged@gmail.com>"
@@ -26,11 +26,11 @@
     "async": "latest",
     "lodash": "latest"
   },
-  "_release": "0.1.5",
+  "_release": "0.2.0",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.5",
-    "commit": "773b8384b70f5006b9e98771702b0935934d78ac"
+    "tag": "0.2.0",
+    "commit": "6f5f285a90df74d6115dd0d1c9f3663c5f34f2f7"
   },
   "_source": "git://github.com/wiresjs/wires.js.git",
   "_target": "*",

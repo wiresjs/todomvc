@@ -6,14 +6,6 @@ var app = app || {};
 		_settings : {
 			json : '/todo.json'
 		},
-		/*updateToDoLeft : function()
-		{
-			if ( this._collection ) {
-				var collection = this._collection
-				collection.todoLeft = _.where(collection.db, { completed : false }).length;
-				collection.todoCompleted = _.where(collection.db, { completed : true }).length;
-			}
-		},*/
 		onCompletedChanged : function(value)
 		{
 			

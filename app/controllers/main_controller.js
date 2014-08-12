@@ -15,13 +15,14 @@ var app = app || {};
 
 			// This is a bit ugly, need to think
 			this.todos = new app.ToDo().fetchAll();
+			
 		},
 		// Index ******************************
 		index : function(params, render) {
 			this.path = 'index';
 			// Reseting all collection filters
 			this.todos.reset();
-
+			
 			// Update bottom stats
 			this.updateStats();
 			this.todos.on('statusChanged', this.updateStats.bind(this));
@@ -64,13 +65,13 @@ var app = app || {};
 		addToDo : function() {
 			if (!this.userText)
 				return;
-
+	
 			var newToDo = new app.ToDo({
 				title : this.userText,
 				completed : false
 			})
 			this.todos.add(newToDo)
-
+			console.log(this.todos.db)
 			// Trigger stats
 			this.updateStats();
 

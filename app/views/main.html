@@ -12,7 +12,7 @@
 			for="toggle-all">Mark all as complete</label>
 
 		<ul id="todo-list" >
-			<!--  item -->           
+			           
 			<li repeat="$todo in $todos" ws-class="{ 'completed' : $todo.completed, 'editing' : $todo.editMode }">
 				<div class="view" visible='!$todo.editMode'>
 					<input class="toggle" type="checkbox" value="$todo.completed">
